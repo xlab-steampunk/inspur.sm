@@ -62,7 +62,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Add user"
-    inspur.sm.add_user:
+    inspur.sm.user:
       state: "present"
       uname: "wbs"
       upass: "admin"
@@ -71,12 +71,18 @@ EXAMPLES = '''
       provider: "{{ ism }}"
 
   - name: "Set user"
-    inspur.sm.add_user:
+    inspur.sm.user:
       state: "present"
       uname: "wbs"
       upass: "12345678"
       role_id: "user"
       priv: "kvm,sol"
+      provider: "{{ ism }}"
+
+  - name: "Delete user"
+    inspur.sm.user:
+      state: "absent"
+      uname: "wbs"
       provider: "{{ ism }}"
 '''
 
